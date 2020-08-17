@@ -1,23 +1,23 @@
 {
   "files": {
     "main.css": "/olympic-plate-calculator/static/css/main.27fd15f6.chunk.css",
-    "main.js": "/olympic-plate-calculator/static/js/main.fe3e843f.chunk.js",
-    "main.js.map": "/olympic-plate-calculator/static/js/main.fe3e843f.chunk.js.map",
+    "main.js": "/olympic-plate-calculator/static/js/main.bb56f9a5.chunk.js",
+    "main.js.map": "/olympic-plate-calculator/static/js/main.bb56f9a5.chunk.js.map",
     "runtime-main.js": "/olympic-plate-calculator/static/js/runtime-main.6796bc32.js",
     "runtime-main.js.map": "/olympic-plate-calculator/static/js/runtime-main.6796bc32.js.map",
-    "static/js/2.9204ecce.chunk.js": "/olympic-plate-calculator/static/js/2.9204ecce.chunk.js",
-    "static/js/2.9204ecce.chunk.js.map": "/olympic-plate-calculator/static/js/2.9204ecce.chunk.js.map",
+    "static/js/2.a6b6639b.chunk.js": "/olympic-plate-calculator/static/js/2.a6b6639b.chunk.js",
+    "static/js/2.a6b6639b.chunk.js.map": "/olympic-plate-calculator/static/js/2.a6b6639b.chunk.js.map",
     "index.html": "/olympic-plate-calculator/index.html",
-    "precache-manifest.a2fd94926c6f4e178779b7a8f0109fe3.js": "/olympic-plate-calculator/precache-manifest.a2fd94926c6f4e178779b7a8f0109fe3.js",
+    "precache-manifest.950223001f6cc893cecdba336348e6fc.js": "/olympic-plate-calculator/precache-manifest.950223001f6cc893cecdba336348e6fc.js",
     "service-worker.js": "/olympic-plate-calculator/service-worker.js",
     "static/css/main.27fd15f6.chunk.css.map": "/olympic-plate-calculator/static/css/main.27fd15f6.chunk.css.map",
-    "static/js/2.9204ecce.chunk.js.LICENSE.txt": "/olympic-plate-calculator/static/js/2.9204ecce.chunk.js.LICENSE.txt",
+    "static/js/2.a6b6639b.chunk.js.LICENSE.txt": "/olympic-plate-calculator/static/js/2.a6b6639b.chunk.js.LICENSE.txt",
     "static/media/settings_512.png": "/olympic-plate-calculator/static/media/settings_512.0de39658.png"
   },
   "entrypoints": [
     "static/js/runtime-main.6796bc32.js",
-    "static/js/2.9204ecce.chunk.js",
+    "static/js/2.a6b6639b.chunk.js",
     "static/css/main.27fd15f6.chunk.css",
-    "static/js/main.fe3e843f.chunk.js"
+    "static/js/main.bb56f9a5.chunk.js"
   ]
 }
