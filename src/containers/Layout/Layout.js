@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import FadeIn from 'react-fade-in';
+import Cookies from 'js-cookie';
 
 import Aux from '../../hoc/Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
@@ -8,6 +9,7 @@ import Plates from '../../components/Plates/Plates';
 import Key from '../../components/Key/Key';
 import PlateSettings from '../../components/PlateControls/PlateSettings/PlateSettings';
 import * as Styles from './Styles';
+
 
 class Layout extends Component{
     state = {
@@ -22,6 +24,16 @@ class Layout extends Component{
         },
         weight: 20,
         showPlateSettings: false
+    }
+
+    componentDidMount(){
+        if (Cookies.get('plates')){
+            this.setState({plates: JSON.parse(Cookies.get('plates'))});
+        }
+    }
+
+    componentDidUpdate(){
+        Cookies.set('plates', this.state.plates);
     }
 
     plateControlChangedHandler = (event) => {

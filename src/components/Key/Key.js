@@ -31,7 +31,7 @@ const key = (props) => {
                     <td style={{backgroundColor: 'red', width: '20px', height: '50%'}}></td>
                     <td>2.5KG</td>
                     <td style={{width: '50px'}}></td>
-                    <td style={{backgroundColor: 'green', width: '20px', height: '100%'}}></td>
+                    <td style={{backgroundColor: 'yellow', width: '20px', height: '100%'}}></td>
                     <td>1.25KG</td>
                 </tr>
                 </tbody>
