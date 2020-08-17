@@ -1,6 +1,7 @@
 import React from 'react';
 import * as Styles from './Styles';
 
+
 const toolbar = (props) => {
     return(
         <Styles.Heading>
