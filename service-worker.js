@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/olympic-plate-calculator/precache-manifest.950223001f6cc893cecdba336348e6fc.js"
+  "/olympic-plate-calculator/precache-manifest.663683c060473abe6bda2d83bb23fcbc.js"
 );
 
 self.addEventListener('message', (event) => {
