@@ -69,7 +69,7 @@ const plates = (props) => {
 
     let paddingTop = '0px';
 
-    if (Number(props.weight)<=20){
+    if (Number(props.weight)<=22.5){
         paddingTop = '42px';
     }
     const emptyBarToggleStyle = {display: 'flex', alignItems: 'center', paddingTop: paddingTop}
