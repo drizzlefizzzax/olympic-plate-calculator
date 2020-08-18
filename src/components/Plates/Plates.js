@@ -68,17 +68,22 @@ const plates = (props) => {
     const reversedPlates = [...plates].reverse();
 
     let paddingTop = '0px';
-    let fractionalPlatesOnBar = false;
+    let onlyFractionalPlatesOnBar = false;
+    let fractionalPlatesOnBar = 0;
 
     for(let i=0;i<plates.length;i++){
         if(Number(plates[i].key)===2.5||Number(plates[i].key)===1.25){
-            fractionalPlatesOnBar = true;
+            fractionalPlatesOnBar +=1;
         }
+    }
+
+    if(fractionalPlatesOnBar===plates.length-1){
+        onlyFractionalPlatesOnBar = true;
     }
 
     if (Number(props.weight)<=22.4){
         paddingTop = '42px';
-    } else if(fractionalPlatesOnBar){
+    } else if(onlyFractionalPlatesOnBar){
         paddingTop = '25px';
     }
     const emptyBarToggleStyle = {display: 'flex', alignItems: 'center', paddingTop: paddingTop}
