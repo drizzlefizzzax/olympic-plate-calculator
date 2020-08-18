@@ -24,45 +24,45 @@ export const Plate = styled.div`
 `;
 
 export const RedPlate = styled(Plate)`
-    width: 15px;
+    width: 9px;
     background-color: red;
     border-color: #e80202;
 `;
 
 export const BluePlate = styled(Plate)`
-    width: 15px;
+    width: 9px;
     background-color: blue;
     border-color: #0000e0;
 `;
 
 export const YellowPlate = styled(Plate)`
-    width: 15px;
+    width: 9px;
     background-color: yellow;
     border-color: #e6e600;
 `;
 
 export const GreenPlate = styled(Plate)`
-    width: 15px;
+    width: 9px;
     background-color: green;
     border-color: #006b00;
 `;
 
 export const GreyPlate = styled(Plate)`
-    width: 15px;
+    width: 9px;
     background-color: grey;
     border-color: #707070;
 `;
 
 export const RedFracPlate = styled(Plate)`
     height: 50px;
-    width: 15px;
+    width: 9px;
     background-color: red;
     border-color: #e80202;
 `;
 
 export const YellowFracPlate = styled(Plate)`
     height: 50px;
-    width: 15px;
+    width: 9px;
     background-color: yellow;
     border-color: #e6e600;
 `;
