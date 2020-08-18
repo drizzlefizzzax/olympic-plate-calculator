@@ -1,4 +1,6 @@
 import React from 'react';
+
+import Key from '../Key/Key';
 import * as Styles from './Styles';
 
 const plates = (props) => {
@@ -65,15 +67,29 @@ const plates = (props) => {
     //swap order of plates for left side of bar
     const reversedPlates = [...plates].reverse();
 
+    let paddingTop = '0px';
+
+    if (Number(props.weight)<=20){
+        paddingTop = '42px';
+    }
+    const emptyBarToggleStyle = {display: 'flex', alignItems: 'center', paddingTop: paddingTop}
+
+
     return(
-        <div style={{display: 'flex', alignItems: 'center'}}>
-            {reversedPlates}
-            {plates.length>0 ? 
-                <Styles.Bar /> : 
-                weight===20 ?
-                <Styles.Bar /> :
-                null}
-            {plates}
+        <div>
+            {/* <div style={{display: 'flex', alignItems: 'center'}}> */}
+            <div style={emptyBarToggleStyle}>
+                {reversedPlates}
+                {plates.length>0 ? 
+                    <Styles.Bar /> : 
+                    weight===20 ?
+                    <Styles.Bar /> :
+                    null}
+                {plates}
+            </div>
+            <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
+                <Key plates={reversedPlates}/>
+            </div>
         </div>
     )
 }

@@ -1,50 +1,58 @@
 import React from 'react';
+
+import Plate from './Plate/Plate';
 // import * as Styles from './Styles';
 
 const key = (props) => {    
 
+    let plates = props.plates;
+    let platesList = [];
+
+    for(let i=0;i<plates.length;i++){
+        if(plates[i].key === "sleeve"){
+            plates.splice(i,1);
+        }
+    }
+
+    for(let i=0;i<plates.length;i++){
+        platesList.push(plates[i].key.substring(0,plates[i].key.length-1))
+    }
+
+    platesList.reverse();
+
+    let renderPlates = platesList.map((plate, index) => {
+        return <Plate key={index} weight={parseFloat(plate)} fractional={(parseFloat(plate)===2.5||parseFloat(plate)===1.25)}/>
+    })
+    let spacedRenderPlates = [];
+
+    let renderLabels = platesList.map((plate, index) => {
+        return <td key={index}>{plate}KG</td>
+    })
+    let spacedRenderLabels = [];
+
+    for(let i=0;i<renderPlates.length;i++){
+        if(!i%2===0){
+            spacedRenderPlates.push(<Plate spacer key={"plate"+i}/>);
+            spacedRenderPlates.push(renderPlates[i]);
+            spacedRenderLabels.push(<Plate spacer key={"label"+i}/>);
+            spacedRenderLabels.push(renderLabels[i]);
+        }else{
+            spacedRenderPlates.push(renderPlates[i]);
+            spacedRenderLabels.push(renderLabels[i]);
+        }
+    }
+
     return(
         <div>
-            <h3>Key</h3>
+            {platesList.length>0 ? <h3>Breakdown</h3> : null}
             <table>
                 <tbody>
                     <tr>
-                        <td><div style={{margin: 'auto', backgroundColor: 'red', width: '9px', height: '100px', borderRadius: '5px', borderStyle: 'inset', borderColor: '#e80202'}}></div></td>
-                        <td><div style={{width: '10px'}}></div></td>
-                        <td><div style={{margin: 'auto', backgroundColor: 'blue', width: '9px', height: '100px', borderRadius: '5px', borderStyle: 'inset', borderColor: '#0000e0'}}></div></td>
+                        {spacedRenderPlates}
                     </tr>
                     <tr>
-                        <td>25KG</td>
-                        <td></td>
-                        <td>20KG</td>
+                        {spacedRenderLabels}
                     </tr>
-                {/* <tr><td colSpan="5">Full Plates</td></tr>
-                <tr>
-                    <td style={{backgroundColor: 'red', width: '9px', height: '50px', borderRadius: '5px', borderStyle: 'inset', borderColor: '#e80202'}}></td>
-                    <td>25KG</td>
-                    <td style={{width: '9px'}}></td>
-                    <td style={{backgroundColor: 'blue', width: '9px', height: '50px', borderRadius: '5px', borderStyle: 'inset', borderColor: '#0000e0'}}></td>
-                    <td>20KG</td>
-                </tr>
-                <tr>
-                    <td style={{backgroundColor: 'yellow', width: '9px', height: '50px', borderRadius: '5px', borderStyle: 'inset', borderColor: '#e6e600'}}></td>
-                    <td>15KG</td>
-                    <td style={{width: '9px'}}></td>
-                    <td style={{backgroundColor: 'green', width: '9px', height: '50px'}}></td>
-                    <td>10KG</td>
-                </tr>
-                <tr>
-                    <td style={{backgroundColor: 'grey', width: '9px', height: '50px'}}></td>
-                    <td>5KG</td>
-                </tr>
-                <tr><td colSpan="5">Fractional Plates</td></tr>
-                <tr>
-                    <td style={{backgroundColor: 'red', width: '20px', height: '50%'}}></td>
-                    <td>2.5KG</td>
-                    <td style={{width: '50px'}}></td>
-                    <td style={{backgroundColor: 'yellow', width: '20px', height: '100%'}}></td>
-                    <td>1.25KG</td>
-                </tr> */}
                 </tbody>
             </table>
             

@@ -6,7 +6,7 @@ import Aux from '../../hoc/Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import PlateControls from '../../components/PlateControls/PlateControls';
 import Plates from '../../components/Plates/Plates';
-import Key from '../../components/Key/Key';
+// import Key from '../../components/Key/Key';
 import PlateSettings from '../../components/PlateControls/PlateSettings/PlateSettings';
 import * as Styles from './Styles';
 
@@ -188,10 +188,10 @@ class Layout extends Component{
                                 : null}
                             <PlateControls change={this.plateControlChangedHandler} value={this.state.weight} settingsToggle={this.plateControlSettingsToggle} plates={this.state.plates}/>
                             <Styles.FlexCentered>
-                                <Plates weight={this.state.weight} plates={this.state.plates}/>
+                                <Plates weight={this.state.weight} plates={this.state.plates} calcPlates={this.calculatePlatesHandler}/>
                             </Styles.FlexCentered>
                             <Styles.FlexCentered>
-                                <Key/>
+                                {/* <Key/> */}
                             </Styles.FlexCentered>
                         </FadeIn>
                     </Styles.Centered>

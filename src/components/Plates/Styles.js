@@ -7,6 +7,10 @@ export const Bar = styled.div`
     border-style: inset none none none;
 `;
 
+export const EmptyBar = styled(Bar)`
+    margin-top: 50px;
+`;
+
 export const Sleeve = styled.div`
     height: 20px;
     width: ${(props) => props.width};
