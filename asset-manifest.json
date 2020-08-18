@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/olympic-plate-calculator/static/css/main.27fd15f6.chunk.css",
-    "main.js": "/olympic-plate-calculator/static/js/main.34712409.chunk.js",
-    "main.js.map": "/olympic-plate-calculator/static/js/main.34712409.chunk.js.map",
+    "main.js": "/olympic-plate-calculator/static/js/main.f1203c2b.chunk.js",
+    "main.js.map": "/olympic-plate-calculator/static/js/main.f1203c2b.chunk.js.map",
     "runtime-main.js": "/olympic-plate-calculator/static/js/runtime-main.6796bc32.js",
     "runtime-main.js.map": "/olympic-plate-calculator/static/js/runtime-main.6796bc32.js.map",
     "static/js/2.a6b6639b.chunk.js": "/olympic-plate-calculator/static/js/2.a6b6639b.chunk.js",
     "static/js/2.a6b6639b.chunk.js.map": "/olympic-plate-calculator/static/js/2.a6b6639b.chunk.js.map",
     "index.html": "/olympic-plate-calculator/index.html",
-    "precache-manifest.3d0574556f36156927408a58f48b4119.js": "/olympic-plate-calculator/precache-manifest.3d0574556f36156927408a58f48b4119.js",
+    "precache-manifest.263db99a147e518a03594b8e79d240a2.js": "/olympic-plate-calculator/precache-manifest.263db99a147e518a03594b8e79d240a2.js",
     "service-worker.js": "/olympic-plate-calculator/service-worker.js",
     "static/css/main.27fd15f6.chunk.css.map": "/olympic-plate-calculator/static/css/main.27fd15f6.chunk.css.map",
     "static/js/2.a6b6639b.chunk.js.LICENSE.txt": "/olympic-plate-calculator/static/js/2.a6b6639b.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.6796bc32.js",
     "static/js/2.a6b6639b.chunk.js",
     "static/css/main.27fd15f6.chunk.css",
-    "static/js/main.34712409.chunk.js"
+    "static/js/main.f1203c2b.chunk.js"
   ]
 }
