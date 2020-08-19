@@ -3,6 +3,7 @@ import FadeIn from 'react-fade-in';
 import Cookies from 'js-cookie';
 
 import Aux from '../../hoc/Aux/Aux';
+import Modal from '../../hoc/Modal/Modal';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
 import Sidebar from '../../components/Navigation/Sidebar/Sidebar';
 import PlateControls from '../../components/PlateControls/PlateControls';
@@ -10,6 +11,7 @@ import Plates from '../../components/Plates/Plates';
 import PlateSettings from '../../components/PlateControls/PlateSettings/PlateSettings';
 import Routines from '../../components/Routines/Routines';
 import RoutineSettings from '../../components/Routines/RoutineSettings/RoutineSettings';
+import Key from '../../components/Key/Key';
 import * as Styles from './Styles';
 
 
@@ -30,7 +32,9 @@ class Layout extends Component{
         squatMax: 0,
         benchMax: 0,
         deadMax: 0,
-        showSideBar: false
+        showSideBar: false,
+        showModal: false,
+        modalElement: null
     }
 
     componentDidMount(){
@@ -213,6 +217,66 @@ class Layout extends Component{
         });
     }
 
+    hideModalHandler = () => {
+        this.setState({showModal: false})
+    }
+
+    clickRoutineWeightHandler = (event) => {
+        let weight = event.target.innerHTML.substring(0,event.target.innerHTML.indexOf("x"));
+        const plates = [];
+        if(weight>20){
+            weight = (weight-20)/2;
+            for(let i=0;i<(Math.floor(this.state.plates.twentyfive/2));i++){
+                if((weight-25)>=0){
+                    plates.push(<Styles.RedPlate key={"25" + i}></Styles.RedPlate>);
+                    weight-=25;
+                }
+            }
+            for(let i=0;i<(Math.floor(this.state.plates.twenty/2));i++){
+                if((weight-20)>=0){
+                    plates.push(<Styles.BluePlate key={"20" + i}></Styles.BluePlate>);
+                    weight-=20;
+                }
+            }
+            for(let i=0;i<(Math.floor(this.state.plates.fifteen/2));i++){
+                if((weight-15)>=0){
+                    plates.push(<Styles.YellowPlate key={"15" + i}></Styles.YellowPlate>);
+                    weight-=15;
+                }
+            }
+            for(let i=0;i<(Math.floor(this.state.plates.ten/2));i++){
+                if((weight-10)>=0){
+                    plates.push(<Styles.GreenPlate key={"10" + i}></Styles.GreenPlate>);
+                    weight-=10;
+                }
+            }
+            for(let i=0;i<(Math.floor(this.state.plates.five/2));i++){
+                if((weight-5)>=0){
+                    plates.push(<Styles.GreyPlate key={"5" + i}></Styles.GreyPlate>);
+                    weight-=5;
+                }
+            }
+            for(let i=0;i<(Math.floor(this.state.plates.twopointfive/2));i++){
+                if((weight-2.5)>=0){
+                    plates.push(<Styles.RedFracPlate key={"2.5" + i}></Styles.RedFracPlate>);
+                    weight-=2.5;
+                }
+            }
+            for(let i=0;i<(Math.floor(this.state.plates.onepointtwofive/2));i++){
+                if((weight-1.25)>=0){
+                    plates.push(<Styles.YellowFracPlate key={"1.25" + i}></Styles.YellowFracPlate>);
+                    weight-=1.25;
+                }
+            }
+        }
+
+        const reversedPlates = [...plates].reverse();
+
+        let newModalElement = 
+            <Key plates={reversedPlates}/>
+        this.setState({showModal: true, modalElement: newModalElement})
+    }
+
     render() {
         let plateCalculator = null;
         let strengthRoutine = null;
@@ -242,9 +306,6 @@ class Layout extends Component{
                 <Styles.FlexCentered>
                     <Plates weight={this.state.weight} plates={this.state.plates} calcPlates={this.calculatePlatesHandler}/>
                 </Styles.FlexCentered>
-                <Styles.FlexCentered>
-                    {/* <Key/> */}
-                </Styles.FlexCentered>
             </FadeIn>
         }
 
@@ -260,13 +321,14 @@ class Layout extends Component{
                         deadValue={this.state.deadMax}/>
                     : null}
                 <Styles.FlexCentered>
-                    <Routines settingsToggle={this.settingsToggle} squatMax={this.state.squatMax} benchMax={this.state.benchMax} deadMax={this.state.deadMax}/>
+                    <Routines settingsToggle={this.settingsToggle} squatMax={this.state.squatMax} benchMax={this.state.benchMax} deadMax={this.state.deadMax} clickDay={this.clickRoutineWeightHandler}/>
                 </Styles.FlexCentered>
             </FadeIn>
         }
 
         return (
             <Aux>
+                    {this.state.showModal ? <Modal hide={this.hideModalHandler}>{this.state.modalElement}</Modal>:null}
                     {this.state.showSideBar ? <Sidebar toggle={this.toggleSideBarHandler} strengthRoutine={this.strengthRoutineSidebarHandler} barbellCalculator={this.barbellCalculatorSidebarHandler} currentPage={this.state.currentPage}/>: null}
                     <Styles.Centered>
                         <Toolbar 

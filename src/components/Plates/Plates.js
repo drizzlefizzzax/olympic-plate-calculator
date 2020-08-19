@@ -88,7 +88,6 @@ const plates = (props) => {
     }
     const emptyBarToggleStyle = {display: 'flex', alignItems: 'center', paddingTop: paddingTop}
 
-
     return(
         <div>
             {/* <div style={{display: 'flex', alignItems: 'center'}}> */}

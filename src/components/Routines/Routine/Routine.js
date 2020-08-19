@@ -36,7 +36,7 @@ const routine = (props) => {
             if(props.squatRoutine[0]==="0x2x6"){
                 squatWeekOne.push(<Styles.RoutineItem key={j+i}> </Styles.RoutineItem>)
             }else{
-                squatWeekOne.push(<Styles.RoutineItem key={j+i}>{props.squatRoutine[i]}</Styles.RoutineItem>)
+                squatWeekOne.push(<Styles.RoutineItem key={j+i} onClick={props.clickDay}>{props.squatRoutine[i]}</Styles.RoutineItem>)
             }
         }
     }
@@ -45,7 +45,7 @@ const routine = (props) => {
             if(props.benchRoutine[0]==="0x3x6"){
                 benchWeekOne.push(<Styles.RoutineItem key={j+i}> </Styles.RoutineItem>)
             }else{
-                benchWeekOne.push(<Styles.RoutineItem key={j+i}>{props.benchRoutine[i]}</Styles.RoutineItem>)
+                benchWeekOne.push(<Styles.RoutineItem key={j+i} onClick={props.clickDay}>{props.benchRoutine[i]}</Styles.RoutineItem>)
             }
         }
     }
@@ -54,7 +54,7 @@ const routine = (props) => {
             if(props.deadRoutine[0]==="0x3x6"){
                 deadWeekOne.push(<Styles.RoutineItem key={j+i}> </Styles.RoutineItem>)
             }else{
-                deadWeekOne.push(<Styles.RoutineItem key={j+i}>{props.deadRoutine[i]}</Styles.RoutineItem>)
+                deadWeekOne.push(<Styles.RoutineItem key={j+i} onClick={props.clickDay}>{props.deadRoutine[i]}</Styles.RoutineItem>)
             }
         }
     }

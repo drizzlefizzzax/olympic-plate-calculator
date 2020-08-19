@@ -84,12 +84,12 @@ const routines = (props) => {
                 alt='Settings'
             />
             <Styles.RoutineTable>
-                <Routine weekNo={1} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
-                <Routine weekNo={2} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
-                <Routine weekNo={3} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
-                <Routine weekNo={4} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
-                <Routine weekNo={5} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
-                <Routine weekNo={6} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
+                <Routine weekNo={1} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine} clickDay={props.clickDay}/>
+                <Routine weekNo={2} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine} clickDay={props.clickDay}/>
+                <Routine weekNo={3} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine} clickDay={props.clickDay}/>
+                <Routine weekNo={4} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine} clickDay={props.clickDay}/>
+                <Routine weekNo={5} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine} clickDay={props.clickDay}/>
+                <Routine weekNo={6} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine} clickDay={props.clickDay}/>
             </Styles.RoutineTable>
         </div>
         
