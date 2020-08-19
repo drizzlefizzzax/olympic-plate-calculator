@@ -4,10 +4,12 @@ import Cookies from 'js-cookie';
 
 import Aux from '../../hoc/Aux/Aux';
 import Toolbar from '../../components/Navigation/Toolbar/Toolbar';
+import Sidebar from '../../components/Navigation/Sidebar/Sidebar';
 import PlateControls from '../../components/PlateControls/PlateControls';
 import Plates from '../../components/Plates/Plates';
-// import Key from '../../components/Key/Key';
 import PlateSettings from '../../components/PlateControls/PlateSettings/PlateSettings';
+import Routines from '../../components/Routines/Routines';
+import RoutineSettings from '../../components/Routines/RoutineSettings/RoutineSettings';
 import * as Styles from './Styles';
 
 
@@ -23,17 +25,34 @@ class Layout extends Component{
             onepointtwofive: 2
         },
         weight: 20,
-        showPlateSettings: false
+        showSettings: false,
+        currentPage: "strengthRoutine",
+        squatMax: 0,
+        benchMax: 0,
+        deadMax: 0,
+        showSideBar: false
     }
 
     componentDidMount(){
         if (Cookies.get('plates')){
             this.setState({plates: JSON.parse(Cookies.get('plates'))});
         }
+        if (Cookies.get('squatMax')){
+            this.setState({squatMax: JSON.parse(Cookies.get('squatMax'))});
+        }
+        if (Cookies.get('benchMax')){
+            this.setState({benchMax: JSON.parse(Cookies.get('benchMax'))});
+        }
+        if (Cookies.get('deadMax')){
+            this.setState({deadMax: JSON.parse(Cookies.get('deadMax'))});
+        }
     }
 
     componentDidUpdate(){
-        Cookies.set('plates', this.state.plates);
+        Cookies.set('plates', this.state.plates, { expires: 365});
+        Cookies.set('squatMax', this.state.squatMax, { expires: 365});
+        Cookies.set('benchMax', this.state.benchMax, { expires: 365});
+        Cookies.set('deadMax', this.state.deadMax, { expires: 365});
     }
 
     plateControlChangedHandler = (event) => {
@@ -42,8 +61,8 @@ class Layout extends Component{
         }
     }
 
-    plateControlSettingsToggle = () => {
-        this.setState({showPlateSettings: !this.state.showPlateSettings});
+    settingsToggle = () => {
+        this.setState({showSettings: !this.state.showSettings});
     }
 
     minusTwentyFiveHandler = () => {
@@ -160,40 +179,102 @@ class Layout extends Component{
         })
     }
 
+    squatChangedHandler = (event) => {
+        if (!isNaN(event.target.value)){
+            this.setState({squatMax: event.target.value});
+        }
+    }
+    benchChangedHandler = (event) => {
+        if (!isNaN(event.target.value)){
+            this.setState({benchMax: event.target.value});
+        }
+    }
+    deadChangedHandler = (event) => {
+        if (!isNaN(event.target.value)){
+            this.setState({deadMax: event.target.value});
+        }
+    }
+
+    toggleSideBarHandler = () => {
+        this.setState({showSideBar: !this.state.showSideBar});
+    }
+
+    strengthRoutineSidebarHandler = () => {
+        this.setState({
+            showSideBar: false,
+            currentPage: "strengthRoutine"
+        });
+    }
+
+    barbellCalculatorSidebarHandler = () => {
+        this.setState({
+            showSideBar: false,
+            currentPage: "plateCalculator"
+        });
+    }
+
     render() {
+        let plateCalculator = null;
+        let strengthRoutine = null;
+        if(this.state.currentPage === "plateCalculator"){
+            plateCalculator = 
+            <FadeIn>
+                {this.state.showSettings ? 
+                    <PlateSettings 
+                        plates={this.state.plates}
+                        minusTwentyFive={this.minusTwentyFiveHandler}
+                        minusTwenty={this.minusTwentyHandler}
+                        minusFifteen={this.minusFifteenHandler}
+                        minusTen={this.minusTenHandler}
+                        minusFive={this.minusFiveHandler}
+                        minusTwoPointFive={this.minusTwoPointFiveHandler}
+                        minusOnePointTwoFive={this.minusOnePointTwoFiveHandler}
+                        plusTwentyFive={this.plusTwentyFiveHandler}
+                        plusTwenty={this.plusTwentyHandler}
+                        plusFifteen={this.plusFifteenHandler}
+                        plusTen={this.plusTenHandler}
+                        plusFive={this.plusFiveHandler}
+                        plusTwoPointFive={this.plusTwoPointFiveHandler}
+                        plusOnePointTwoFive={this.plusOnePointTwoFiveHandler}
+                        />
+                    : null}
+                <PlateControls change={this.plateControlChangedHandler} value={this.state.weight} settingsToggle={this.settingsToggle} plates={this.state.plates}/>
+                <Styles.FlexCentered>
+                    <Plates weight={this.state.weight} plates={this.state.plates} calcPlates={this.calculatePlatesHandler}/>
+                </Styles.FlexCentered>
+                <Styles.FlexCentered>
+                    {/* <Key/> */}
+                </Styles.FlexCentered>
+            </FadeIn>
+        }
+
+        if(this.state.currentPage === "strengthRoutine"){
+            strengthRoutine = 
+            <FadeIn>
+                {this.state.showSettings ? 
+                    <RoutineSettings squatChanged={this.squatChangedHandler} 
+                        squatValue={this.state.squatMax} 
+                        benchChanged={this.benchChangedHandler} 
+                        benchValue={this.state.benchMax} 
+                        deadChanged={this.deadChangedHandler} 
+                        deadValue={this.state.deadMax}/>
+                    : null}
+                <Styles.FlexCentered>
+                    <Routines settingsToggle={this.settingsToggle} squatMax={this.state.squatMax} benchMax={this.state.benchMax} deadMax={this.state.deadMax}/>
+                </Styles.FlexCentered>
+            </FadeIn>
+        }
+
         return (
             <Aux>
+                    {this.state.showSideBar ? <Sidebar toggle={this.toggleSideBarHandler} strengthRoutine={this.strengthRoutineSidebarHandler} barbellCalculator={this.barbellCalculatorSidebarHandler} currentPage={this.state.currentPage}/>: null}
                     <Styles.Centered>
-                        <Toolbar />
-                        <FadeIn>
-                            {/* {this.state.showPlateSettings ? <p style={{backgroundColor: 'grey', marginTop:'-0px'}}>Plate Settings</p> : null} */}
-                            {this.state.showPlateSettings ? 
-                                <PlateSettings 
-                                    plates={this.state.plates}
-                                    minusTwentyFive={this.minusTwentyFiveHandler}
-                                    minusTwenty={this.minusTwentyHandler}
-                                    minusFifteen={this.minusFifteenHandler}
-                                    minusTen={this.minusTenHandler}
-                                    minusFive={this.minusFiveHandler}
-                                    minusTwoPointFive={this.minusTwoPointFiveHandler}
-                                    minusOnePointTwoFive={this.minusOnePointTwoFiveHandler}
-                                    plusTwentyFive={this.plusTwentyFiveHandler}
-                                    plusTwenty={this.plusTwentyHandler}
-                                    plusFifteen={this.plusFifteenHandler}
-                                    plusTen={this.plusTenHandler}
-                                    plusFive={this.plusFiveHandler}
-                                    plusTwoPointFive={this.plusTwoPointFiveHandler}
-                                    plusOnePointTwoFive={this.plusOnePointTwoFiveHandler}
-                                    />
-                                : null}
-                            <PlateControls change={this.plateControlChangedHandler} value={this.state.weight} settingsToggle={this.plateControlSettingsToggle} plates={this.state.plates}/>
-                            <Styles.FlexCentered>
-                                <Plates weight={this.state.weight} plates={this.state.plates} calcPlates={this.calculatePlatesHandler}/>
-                            </Styles.FlexCentered>
-                            <Styles.FlexCentered>
-                                {/* <Key/> */}
-                            </Styles.FlexCentered>
-                        </FadeIn>
+                        <Toolbar 
+                        heading={this.state.currentPage==="strengthRoutine" ? "Russian Strength Routine" : "Olympic Barbell Plate Calculator"}
+                        toggleSideBar={this.toggleSideBarHandler}
+                        />
+                        {plateCalculator}
+                        {strengthRoutine}
                     </Styles.Centered>
             </Aux>
         );

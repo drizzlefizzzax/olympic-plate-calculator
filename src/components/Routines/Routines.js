@@ -1,57 +1,99 @@
 import React from 'react';
 
 import Routine from './Routine/Routine';
+import * as Styles from './Styles';
 
-const REP_MODIFIERS = [
+import settingsImg from '../../Images/settings_512.png';
+
+const REP_FACTORS = 
+[
     {
-        weight: 0.8,
-        reps: 'x2 x6'
+        factor: 0.8,
+        volume: 'x2x6'
     },
     {
-        weight: 0.8,
-        reps: 'x3 x6'
+        factor: 0.8,
+        volume: 'x3x6'
     },
     {
-        weight: 0.8,
-        reps: 'x4 x6'
+        factor: 0.8,
+        volume: 'x4x6'
     },
     {
-        weight: 0.8,
-        reps: 'x5 x6'
+        factor: 0.8,
+        volume: 'x5x6'
     },
     {
-        weight: 0.8,
-        reps: 'x6 x6'
+        factor: 0.8,
+        volume: 'x6x6'
     },
     {
-        weight: 0.85,
-        reps: 'x5 x5'
+        factor: 0.85,
+        volume: 'x5x5'
     },
     {
-        weight: 0.9,
-        reps: 'x4 x4'
+        factor: 0.9,
+        volume: 'x4x4'
     },
     {
-        weight: 0.95,
-        reps: 'x3 x3'
+        factor: 0.95,
+        volume: 'x3x3'
     },
     {
-        weight: 1,
-        reps: 'x2 x2'
+        factor: 1,
+        volume: 'x2x2'
     },
     {
-        weight: 1.1,
-        reps: 'x1'
+        factor: 1.1,
+        volume: 'x1'
     }
-];
+]
+
 const routines = (props) => {
+    let squatRoutine=[];
+    let benchRoutine=[];
+    let deadRoutine=[];
+    for(let i=0;i<REP_FACTORS.length;i++){
+        if(i===0){
+            squatRoutine.push((2.5*Math.ceil(((props.squatMax*REP_FACTORS[i].factor).toFixed(2))/2.5) + REP_FACTORS[i].volume));
+            benchRoutine.push((2.5*Math.ceil(((props.benchMax*REP_FACTORS[i].factor).toFixed(2))/2.5) + REP_FACTORS[i].volume));
+            deadRoutine.push((2.5*Math.ceil(((props.deadMax*REP_FACTORS[i].factor).toFixed(2))/2.5) + REP_FACTORS[i].volume));
+        } else{
+            squatRoutine.push((2.5*Math.ceil(((props.squatMax*REP_FACTORS[i].factor).toFixed(2))/2.5) + REP_FACTORS[i].volume));
+            benchRoutine.push((2.5*Math.ceil(((props.benchMax*REP_FACTORS[i].factor).toFixed(2))/2.5) + REP_FACTORS[i].volume));
+            deadRoutine.push((2.5*Math.ceil(((props.deadMax*REP_FACTORS[i].factor).toFixed(2))/2.5) + REP_FACTORS[i].volume));
+            squatRoutine.push((2.5*Math.ceil(((props.squatMax*REP_FACTORS[0].factor).toFixed(2))/2.5) + REP_FACTORS[0].volume));
+            benchRoutine.push((2.5*Math.ceil(((props.benchMax*REP_FACTORS[0].factor).toFixed(2))/2.5) + REP_FACTORS[0].volume));
+            deadRoutine.push((2.5*Math.ceil(((props.deadMax*REP_FACTORS[0].factor).toFixed(2))/2.5) + REP_FACTORS[0].volume));
+        }
+    };
+
+    benchRoutine.shift();
+    deadRoutine.shift();
+
+    squatRoutine.pop();
+    benchRoutine.pop();
+    deadRoutine.pop();
+
     return(
-        <div>
-        <Routine modifiers={REP_MODIFIERS} weight={props.weights.bench}>Bench</Routine>
-        <Routine modifiers={REP_MODIFIERS} weight={props.weights.squat}>Squat</Routine>
-        <Routine modifiers={REP_MODIFIERS} weight={props.weights.dead}>Deadlift</Routine>
+        <div style={{paddingBottom: '30px', paddingTop: '30px'}}>
+            <img 
+                style={{position: 'absolute', right: '0', height: '40px', marginTop: '-25px'}} 
+                src={settingsImg} 
+                onClick={props.settingsToggle}
+                alt='Settings'
+            />
+            <Styles.RoutineTable>
+                <Routine weekNo={1} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
+                <Routine weekNo={2} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
+                <Routine weekNo={3} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
+                <Routine weekNo={4} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
+                <Routine weekNo={5} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
+                <Routine weekNo={6} squatRoutine={squatRoutine} benchRoutine={benchRoutine} deadRoutine={deadRoutine}/>
+            </Styles.RoutineTable>
         </div>
-    );
+        
+    )
 }
 
 export default routines;

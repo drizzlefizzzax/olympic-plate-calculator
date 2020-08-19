@@ -16,7 +16,7 @@ const plateControls = (props) => {
     return(
         <div style={{paddingBottom: '30px', paddingTop: '30px'}}>
             <img 
-                style={{position: 'absolute', right: '0', height: '20%', marginTop: '-25px'}} 
+                style={{position: 'absolute', right: '0', height: '40px', marginTop: '-25px'}} 
                 src={settingsImg} 
                 onClick={props.settingsToggle}
                 alt='Settings'
