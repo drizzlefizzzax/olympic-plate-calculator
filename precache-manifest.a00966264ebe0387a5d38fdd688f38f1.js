@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "effe512b9151741c2fc5a2bbf66cd2cc",
+    "revision": "acff8352241e4b5019b71aafc1a0a7fc",
     "url": "/olympic-plate-calculator/index.html"
   },
   {
-    "revision": "34ffaceba98ef069f2f5",
+    "revision": "cf2ccd3abefb89dd9000",
     "url": "/olympic-plate-calculator/static/css/main.27fd15f6.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/olympic-plate-calculator/static/js/2.0d757de4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "34ffaceba98ef069f2f5",
-    "url": "/olympic-plate-calculator/static/js/main.174507ae.chunk.js"
+    "revision": "cf2ccd3abefb89dd9000",
+    "url": "/olympic-plate-calculator/static/js/main.a6e28002.chunk.js"
   },
   {
     "revision": "e7920fc8bd1d0b85ada6",
