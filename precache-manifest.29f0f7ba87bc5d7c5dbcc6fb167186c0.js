@@ -1,23 +1,23 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "ee841bfb55c03e871a1039a3ccf59a59",
+    "revision": "34a3560552ee71ba82459f1d0aa8c296",
     "url": "/olympic-plate-calculator/index.html"
   },
   {
-    "revision": "9ac3b24f475196a7a829",
+    "revision": "072faa88eccf3877cd11",
     "url": "/olympic-plate-calculator/static/css/main.27fd15f6.chunk.css"
   },
   {
-    "revision": "14b33c0c606597f93282",
-    "url": "/olympic-plate-calculator/static/js/2.55298ac8.chunk.js"
+    "revision": "34b1119cb0fe5d703376",
+    "url": "/olympic-plate-calculator/static/js/2.00bbcdf2.chunk.js"
   },
   {
     "revision": "6b3248a1692933689dcb27b9e1ed5092",
-    "url": "/olympic-plate-calculator/static/js/2.55298ac8.chunk.js.LICENSE.txt"
+    "url": "/olympic-plate-calculator/static/js/2.00bbcdf2.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "9ac3b24f475196a7a829",
-    "url": "/olympic-plate-calculator/static/js/main.e909b507.chunk.js"
+    "revision": "072faa88eccf3877cd11",
+    "url": "/olympic-plate-calculator/static/js/main.fcbb2e34.chunk.js"
   },
   {
     "revision": "e7920fc8bd1d0b85ada6",
