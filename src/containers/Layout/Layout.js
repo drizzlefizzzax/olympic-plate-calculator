@@ -284,7 +284,7 @@ class Layout extends Component{
             plateCalculator = 
             <FadeIn>
                 {this.state.showSettings ? 
-                    <PlateSettings 
+                    <Styles.FadeInSettings><PlateSettings 
                         plates={this.state.plates}
                         minusTwentyFive={this.minusTwentyFiveHandler}
                         minusTwenty={this.minusTwentyHandler}
@@ -300,7 +300,7 @@ class Layout extends Component{
                         plusFive={this.plusFiveHandler}
                         plusTwoPointFive={this.plusTwoPointFiveHandler}
                         plusOnePointTwoFive={this.plusOnePointTwoFiveHandler}
-                        />
+                        /></Styles.FadeInSettings>
                     : null}
                 <PlateControls change={this.plateControlChangedHandler} value={this.state.weight} settingsToggle={this.settingsToggle} plates={this.state.plates}/>
                 <Styles.FlexCentered>
@@ -313,12 +313,12 @@ class Layout extends Component{
             strengthRoutine = 
             <FadeIn>
                 {this.state.showSettings ? 
-                    <RoutineSettings squatChanged={this.squatChangedHandler} 
+                    <Styles.FadeInSettings><RoutineSettings squatChanged={this.squatChangedHandler} 
                         squatValue={this.state.squatMax} 
                         benchChanged={this.benchChangedHandler} 
                         benchValue={this.state.benchMax} 
                         deadChanged={this.deadChangedHandler} 
-                        deadValue={this.state.deadMax}/>
+                        deadValue={this.state.deadMax}/></Styles.FadeInSettings>
                     : null}
                 <Styles.FlexCentered>
                     <Routines settingsToggle={this.settingsToggle} squatMax={this.state.squatMax} benchMax={this.state.benchMax} deadMax={this.state.deadMax} clickDay={this.clickRoutineWeightHandler}/>
@@ -329,7 +329,7 @@ class Layout extends Component{
         return (
             <Aux>
                     {this.state.showModal ? <Modal hide={this.hideModalHandler}>{this.state.modalElement}</Modal>:null}
-                    {this.state.showSideBar ? <Styles.SlideInLeft><Sidebar toggle={this.toggleSideBarHandler} strengthRoutine={this.strengthRoutineSidebarHandler} barbellCalculator={this.barbellCalculatorSidebarHandler} currentPage={this.state.currentPage}/></Styles.SlideInLeft>: null}
+                    {this.state.showSideBar ? <Styles.FadeInSettings><Sidebar toggle={this.toggleSideBarHandler} strengthRoutine={this.strengthRoutineSidebarHandler} barbellCalculator={this.barbellCalculatorSidebarHandler} currentPage={this.state.currentPage}/></Styles.FadeInSettings>: null}
                     <Styles.Centered>
                         <Toolbar 
                         heading={this.state.currentPage==="strengthRoutine" ? "Russian Strength Routine" : "Olympic Barbell Plate Calculator"}
