@@ -329,7 +329,7 @@ class Layout extends Component{
         return (
             <Aux>
                     {this.state.showModal ? <Modal hide={this.hideModalHandler}>{this.state.modalElement}</Modal>:null}
-                    {this.state.showSideBar ? <Sidebar toggle={this.toggleSideBarHandler} strengthRoutine={this.strengthRoutineSidebarHandler} barbellCalculator={this.barbellCalculatorSidebarHandler} currentPage={this.state.currentPage}/>: null}
+                    {this.state.showSideBar ? <Styles.SlideInLeft><Sidebar toggle={this.toggleSideBarHandler} strengthRoutine={this.strengthRoutineSidebarHandler} barbellCalculator={this.barbellCalculatorSidebarHandler} currentPage={this.state.currentPage}/></Styles.SlideInLeft>: null}
                     <Styles.Centered>
                         <Toolbar 
                         heading={this.state.currentPage==="strengthRoutine" ? "Russian Strength Routine" : "Olympic Barbell Plate Calculator"}

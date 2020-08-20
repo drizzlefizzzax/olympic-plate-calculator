@@ -1,8 +1,17 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+import { slideInLeft, slideOutLeft } from 'react-animations';
 
 export const Centered = styled.div`
     text-align: center;
     touch-action: manipulation;
+`;
+
+export const SlideInLeft = styled.div`
+    animation: 0.1s ${keyframes`${slideInLeft}`};
+`;
+
+export const SlideOutLeft = styled.div`
+    animation: 0.1s ${keyframes`${slideOutLeft}`};
 `;
 
 export const FlexCentered = styled.div`
