@@ -328,7 +328,7 @@ class Layout extends Component{
 
         return (
             <Aux>
-                    {this.state.showModal ? <Modal hide={this.hideModalHandler}>{this.state.modalElement}</Modal>:null}
+                    {this.state.showModal ? <Styles.FadeInSettings><Modal hide={this.hideModalHandler}>{this.state.modalElement}</Modal></Styles.FadeInSettings>:null}
                     {this.state.showSideBar ? <Styles.FadeInSettings><Sidebar toggle={this.toggleSideBarHandler} strengthRoutine={this.strengthRoutineSidebarHandler} barbellCalculator={this.barbellCalculatorSidebarHandler} currentPage={this.state.currentPage}/></Styles.FadeInSettings>: null}
                     <Styles.Centered>
                         <Toolbar 
