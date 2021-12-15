@@ -18,13 +18,13 @@ import * as Styles from './Styles';
 class Layout extends Component{
     state = {
         plates: {
-            twentyfive: 2,
-            twenty: 2,
-            fifteen: 2,
-            ten: 2,
-            five: 2,
-            twopointfive: 2,
-            onepointtwofive: 2
+            twentyfive: 4,
+            twenty: 4,
+            fifteen: 4,
+            ten: 4,
+            five: 4,
+            twopointfive: 4,
+            onepointtwofive: 4
         },
         weight: 20,
         showSettings: false,
